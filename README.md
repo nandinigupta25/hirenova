@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# HireNova – AI-Powered Mock Interview Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HireNova is a full-stack SaaS application that helps students and job seekers prepare for interviews using AI. It simulates real interviews, evaluates candidate performance, analyzes resumes, and provides personalized feedback.
 
-Currently, two official plugins are available:
+![HireNova Dashboard](https://img.shields.io/badge/Status-Active-brightgreen) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-cyan)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **AI Interview Room** — Practice HR, Technical, DSA, System Design, and OOP questions
+- **Resume Intelligence** — Upload PDF resume and get skill analysis and improvement suggestions
+- **Coding Round** — Monaco editor with Java, Python, and C++ support
+- **Analytics Dashboard** — Track performance, topic scores, and readiness index
+- **Profile Management** — Update profile picture, bio, and interview history
+- **JWT Authentication** — Secure login and registration system
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Frontend
+- React.js 18
+- TypeScript
+- Tailwind CSS
+- ShadCN UI
+- React Router DOM
+- Axios
+- Monaco Editor
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Backend
+- Java 25
+- Spring Boot 3.5
+- Spring Security
+- JWT Authentication
+- Hibernate/JPA
+- Maven
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Database
+- PostgreSQL
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js v20+
+- Java 21+
+- PostgreSQL
+
+### Frontend Setup
+
+```bash
+git clone https://github.com/nandinigupta25/hirenova.git
+cd hirenova
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open `http://localhost:5173` in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Backend Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/nandinigupta25/hirenova-backend.git
+cd hirenova-backend
 ```
+
+Create `src/main/resources/application.properties`:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/hirenova
+spring.datasource.username=postgres
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+jwt.secret=your_jwt_secret
+jwt.expiration-ms=86400000
+server.port=8080
+spring.flyway.enabled=false
+```
+
+Then run:
+
+```bash
+./mvnw spring-boot:run
+```
+
+---
+
+## Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Login | `/login` | User authentication |
+| Register | `/register` | Create new account |
+| Dashboard | `/dashboard` | Overview and stats |
+| Interview Room | `/interview` | Mock interview session |
+| Coding Round | `/coding` | Code editor with problems |
+| Resume Analysis | `/resume` | PDF resume analyzer |
+| Profile | `/profile` | User profile and history |
+
+---
+
+## Project Structure
+---
+
+## Author
+
+**Nandini Gupta**
+- GitHub: [@nandinigupta25](https://github.com/nandinigupta25)
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
